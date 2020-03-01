@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:id="@+id/fl_main"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"></FrameLayout>
+    
+    <RadioGroup
+        android:id="@+id/rg_main"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="60dp" >
+
+        <RadioButton
+        android:id="@+id/rb_main_chat"
+        android:text="微信"
+        android:layout_width="0dp"
+        android:textSize="20sp"
+        android:button="@null"
+        android:gravity="center"
+        android:background="@drawable/main_bottom_bg_selector"
+        android:textColor="@color/main_bottom_textcolor_selector"
+        android:layout_weight="1"
+        android:layout_height="match_parent" />
+
+        <RadioButton
+            android:id="@+id/rb_main_contact"
+            android:text="联系人"
+            android:layout_width="0dp"
+            android:textSize="20sp"
+            android:button="@null"
+            android:gravity="center"
+            android:background="@drawable/main_bottom_bg_selector"
+            android:textColor="@color/main_bottom_textcolor_selector"
+            android:layout_weight="1"
+            android:layout_height="match_parent" />
+
+        <RadioButton
+            android:id="@+id/rb_main_post"
+            android:text="朋友圈"
+            android:layout_width="0dp"
+            android:textSize="20sp"
+            android:button="@null"
+            android:gravity="center"
+            android:background="@drawable/main_bottom_bg_selector"
+            android:textColor="@color/main_bottom_textcolor_selector"
+            android:layout_weight="1"
+            android:layout_height="match_parent" />
+
+        <RadioButton
+            android:id="@+id/rb_main_setting"
+            android:text="设置"
+            android:layout_width="0dp"
+            android:textSize="20sp"
+            android:button="@null"
+            android:gravity="center"
+            android:background="@drawable/main_bottom_bg_selector"
+            android:textColor="@color/main_bottom_textcolor_selector"
+            android:layout_weight="1"
+            android:layout_height="match_parent" />
+    </RadioGroup>
+
+
+</LinearLayout>
