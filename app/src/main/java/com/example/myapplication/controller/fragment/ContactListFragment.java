@@ -17,6 +17,7 @@ public class ContactListFragment extends EaseContactListFragment {
         super.initView();
 
         titleBar.setRightImageResource(R.drawable.em_add);
+        titleBar.setBackgroundColor(0xff99cc00);
 
         //
         View headerView = View.inflate(getActivity(),R.layout.header_fragment_contact,null);

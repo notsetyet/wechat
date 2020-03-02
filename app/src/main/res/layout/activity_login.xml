@@ -6,12 +6,25 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
-    <com.hyphenate.easeui.widget.EaseTitleBar
-        app:titleBarTitle="登录"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+<!--    <com.hyphenate.easeui.widget.EaseTitleBar-->
+<!--        app:titleBarTitle="登录"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content">-->
 
-    </com.hyphenate.easeui.widget.EaseTitleBar>
+<!--    </com.hyphenate.easeui.widget.EaseTitleBar>-->
+    <RelativeLayout
+        android:background="@color/holo_green_light"
+        android:layout_width="match_parent"
+        android:layout_height="60dp" >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="登录"
+            android:textSize="30sp"
+            android:layout_centerInParent="true"
+            android:textColor="@color/btn_white_normal"/>
+
+    </RelativeLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
