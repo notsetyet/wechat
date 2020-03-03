@@ -29,8 +29,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".controller.activity.LoginActivity"></activity>
-         <!-- 设置环信应用的AppKey -->
+        <activity android:name=".controller.activity.InviteActivity"></activity>
+        <activity android:name=".controller.activity.LoginActivity" /> <!-- 设置环信应用的AppKey -->
         <meta-data
             android:name="EASEMOB_APPKEY"
             android:value="1114200226157458#wechat" /> <!-- 声明SDK所需的service SDK核心功能 -->

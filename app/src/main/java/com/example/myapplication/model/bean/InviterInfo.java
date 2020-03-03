@@ -5,6 +5,8 @@ public class InviterInfo {
     private GroupInfo groupInfo;
     private String reason;//邀请原因
 
+    private InvitationStatus invitationStatus;
+
     public UserInfo getUserInfo() {
         return userInfo;
     }
@@ -57,7 +59,7 @@ public class InviterInfo {
     public InviterInfo() {
     }
 
-    private InvitationStatus invitationStatus;
+
 
     public enum InvitationStatus{
         NEW_INVITE,
@@ -72,6 +74,8 @@ public class InviterInfo {
         INVITE_GROUP_ACCEPT_BY_PEER,//被邀请
 
         INVITE_GROUP_REJECT,
-        INVITE_GROUP_REJECT_BY_PEER
+        INVITE_GROUP_REJECT_BY_PEER,
+
+        DEFAULT
     }
 }
