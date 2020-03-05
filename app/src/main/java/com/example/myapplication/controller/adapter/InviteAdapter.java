@@ -18,6 +18,7 @@ public class InviteAdapter extends BaseAdapter {
     private Context mContext;
     private List<InviterInfo> mInvitationInfo=new ArrayList<>();
     private OnInviteListener onInviteListener;
+    private InviterInfo inviterInfo;
     public InviteAdapter(Context context, OnInviteListener onInviteListener) {
         mContext=context;
         this.onInviteListener=onInviteListener;
@@ -66,7 +67,7 @@ public class InviteAdapter extends BaseAdapter {
             viewHolder=(ViewHolder)convertView.getTag();
         }
         //获取当前数据
-        InviterInfo inviterInfo=mInvitationInfo.get(position);
+        inviterInfo=mInvitationInfo.get(position);
 
         //显示数据
         //判断是群或联系人
@@ -91,7 +92,7 @@ public class InviteAdapter extends BaseAdapter {
             }else if(inviterInfo.getInvitationStatus()==InviterInfo.InvitationStatus.INVITE_ACCEPT){
 
                 if(inviterInfo.getReason()==null){
-                    viewHolder.tv_invite_reason.setText("接受邀请");
+                    viewHolder.tv_invite_reason.setText(" 接受邀请");
                 }else{
                     viewHolder.tv_invite_reason.setText(inviterInfo.getReason());
                 }

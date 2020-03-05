@@ -3,6 +3,7 @@ package com.example.myapplication.controller.activity;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
+import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -21,12 +22,12 @@ import com.hyphenate.exceptions.HyphenateException;
 
 import java.util.List;
 
-public class InviteActivity extends AppCompatActivity {
+public class InviteActivity extends Activity {
     private ListView lv_invite;
     private LocalBroadcastManager mLBM;
     private InviteAdapter.OnInviteListener mOnInviteListener=new InviteAdapter.OnInviteListener() {
         @Override
-        public void OnAccept(InviterInfo inviterInfo) {
+        public void OnAccept(final InviterInfo inviterInfo) {
             Model.getInstance().getGlobalThreadPool().execute(new Runnable() {
                 @Override
                 public void run() {
@@ -58,7 +59,7 @@ public class InviteActivity extends AppCompatActivity {
         }
 
         @Override
-        public void OnReject(InviterInfo inviterInfo) {
+        public void OnReject(final InviterInfo inviterInfo) {
 
             Model.getInstance().getGlobalThreadPool().execute(new Runnable() {
                 @Override

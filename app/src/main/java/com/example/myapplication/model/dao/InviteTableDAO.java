@@ -112,7 +112,7 @@ public class InviteTableDAO {
         if(intStatus==InviterInfo.InvitationStatus.NEW_INVITE.ordinal()){
             return InviterInfo.InvitationStatus.NEW_INVITE;
         }
-        return InviterInfo.InvitationStatus.DEFAULT;
+        return null;
     }
 
     public void removeInvitation(String hxid){

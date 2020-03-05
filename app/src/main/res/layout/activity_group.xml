@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".controller.activity.GroupActivity"
+    android:orientation="vertical">
+
+    <com.hyphenate.easeui.widget.EaseTitleBar
+        app:titleBarTitle="群列表"
+        app:titleBarBackground="@color/holo_green_light"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    
+    <ListView
+        android:id="@+id/lv_grouplist"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+    </ListView>
+
+</LinearLayout>

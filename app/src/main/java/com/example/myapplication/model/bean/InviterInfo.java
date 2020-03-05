@@ -1,7 +1,7 @@
 package com.example.myapplication.model.bean;
 
 public class InviterInfo {
-    private UserInfo userInfo;
+    private UserInfo userInfo;//邀请人（谁加的你）
     private GroupInfo groupInfo;
     private String reason;//邀请原因
 
