@@ -12,7 +12,7 @@ bilibili:https://www.bilibili.com/video/av63406977?p=38
 
 Android studio版本：3.6
 Android SDK版本：API28
-请务必调对，否则报错爆到烦死你。在sdk manager里可以全局修改。其余错误请自行百度。
+请务必调对，否则报错爆到烦死你。在project structure里可以全局修改。其余错误请自行百度。
 下载的时候注意不要把Android studio下到C盘，会爆炸。之后我会补上如果C盘上还是有Android的东西，移动哪些文件。壕们当我没说，自行使用C盘。
 
 其他如果还有什么问题可以和我对线~~
