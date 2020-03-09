@@ -70,12 +70,31 @@ public class InviterInfo {
         INVITE_REJECT_BY_PEER,
 
         NEW_GROUP_INVITE,
-        INVITE_GROUP_ACCEPT,//接受邀请
-        INVITE_GROUP_ACCEPT_BY_PEER,//被邀请
+        //收到申请群加入
+        NEW_GROUP_APPLICATION,
 
-        INVITE_GROUP_REJECT,
-        INVITE_GROUP_REJECT_BY_PEER,
+        //群邀请已经被对方接受
+        GROUP_INVITE_ACCEPTED,
 
-        DEFAULT
+        //群申请已经被批准
+        GROUP_APPLICATION_ACCEPTED,
+
+        //接受了群邀请
+        GROUP_ACCEPT_INVITE,
+
+        //批准的群加入申请
+        GROUP_ACCEPT_APPLICATION,
+
+        //拒绝了群邀请
+        GROUP_REJECT_INVITE,
+
+        //拒绝了群申请加入
+        GROUP_REJECT_APPLICATION,
+
+        //群邀请被对方拒绝
+        GROUP_INVITE_DECLINED,
+
+        //群申请被拒绝
+        GROUP_APPLICATION_DECLINED
     }
 }

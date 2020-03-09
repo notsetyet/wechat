@@ -120,8 +120,84 @@ public class InviteAdapter extends BaseAdapter {
                     onInviteListener.OnAccept(inviterInfo);
                 }
             });
-        }else{
+        }else{//如果是群
+            //显示邀请人名称
+            viewHolder.tv_invite_name.setText(inviterInfo.getGroupInfo().getInvitePerson());
+            viewHolder.bt_invite_rej.setVisibility(View.GONE);
+            viewHolder.bt_invite_acc.setVisibility(View.GONE);
 
+            switch (inviterInfo.getInvitationStatus()){
+                case NEW_GROUP_APPLICATION:
+                    viewHolder.tv_invite_reason.setText("您收到新的群申请");
+                    viewHolder.bt_invite_rej.setVisibility(View.VISIBLE);
+                    viewHolder.bt_invite_acc.setVisibility(View.VISIBLE);
+
+                    viewHolder.bt_invite_acc.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            onInviteListener.OnApplicationAcc(inviterInfo);
+                        }
+                    });
+
+                    viewHolder.bt_invite_rej.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            onInviteListener.OnApplicationRej(inviterInfo);
+                        }
+                    });
+                    break;
+                case NEW_GROUP_INVITE:
+                    viewHolder.tv_invite_reason.setText("您收到新的群邀请");
+                    viewHolder.bt_invite_rej.setVisibility(View.VISIBLE);
+                    viewHolder.bt_invite_acc.setVisibility(View.VISIBLE);
+
+                    viewHolder.bt_invite_acc.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            onInviteListener.OnInviteAcc(inviterInfo);
+                        }
+                    });
+
+                    viewHolder.bt_invite_rej.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            onInviteListener.OnInviteRej(inviterInfo);
+                        }
+                    });
+                    break;
+                //接受群申请
+                case GROUP_ACCEPT_APPLICATION:
+                    viewHolder.tv_invite_reason.setText("您批准了群申请");
+                    break;
+                    //接受群邀请
+                case GROUP_ACCEPT_INVITE:
+                    viewHolder.tv_invite_reason.setText("您接受了群邀请");
+                    break;
+                    //群申请被接受
+                case GROUP_APPLICATION_ACCEPTED:
+                    viewHolder.tv_invite_reason.setText("您的群申请已经被接受");
+                    break;
+                    //拒绝群邀请
+                case GROUP_REJECT_INVITE:
+                    viewHolder.tv_invite_reason.setText("您拒绝了群邀请");
+                    break;
+                    //群邀请被接受
+                case GROUP_INVITE_ACCEPTED:
+                    viewHolder.tv_invite_reason.setText("您的群邀请已经被接受");
+                    break;
+                    //群邀请被拒绝
+                case GROUP_INVITE_DECLINED:
+                    viewHolder.tv_invite_reason.setText("您的群邀请已经被拒绝");
+                    break;
+                    //拒绝群申请
+                case GROUP_REJECT_APPLICATION:
+                    viewHolder.tv_invite_reason.setText("您拒绝了群申请");
+                    break;
+                    //
+                case GROUP_APPLICATION_DECLINED:
+                    viewHolder.tv_invite_reason.setText("您的群申请已经被拒绝");
+                    break;
+            }
         }
         //返回view
         return convertView;
@@ -139,5 +215,13 @@ public class InviteAdapter extends BaseAdapter {
         void OnAccept(InviterInfo inviterInfo);
 
         void OnReject(InviterInfo inviterInfo);
+
+        void OnInviteAcc(InviterInfo inviterInfo);
+
+        void OnInviteRej(InviterInfo inviterInfo);
+
+        void OnApplicationAcc(InviterInfo inviterInfo);
+
+        void OnApplicationRej(InviterInfo inviterInfo);
     }
 }

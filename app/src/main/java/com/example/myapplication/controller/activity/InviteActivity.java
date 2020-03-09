@@ -1,16 +1,16 @@
 package com.example.myapplication.controller.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.localbroadcastmanager.content.LocalBroadcastManager;
-
 import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 import com.example.myapplication.R;
 import com.example.myapplication.controller.adapter.InviteAdapter;
@@ -90,7 +90,142 @@ public class InviteActivity extends Activity {
                 }
             });
         }
+
+        @Override
+        public void OnInviteAcc(InviterInfo inviterInfo) {
+            Model.getInstance().getGlobalThreadPool().execute(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        EMClient.getInstance().groupManager().acceptInvitation(inviterInfo.getGroupInfo().getGid(),inviterInfo.getGroupInfo().getInvitePerson());
+                        Log.e("TAG",inviterInfo.getGroupInfo().getGroupName()+" "+inviterInfo.getGroupInfo().getGid());
+                        //本地数据库
+                        inviterInfo.setInvitationStatus(InviterInfo.InvitationStatus.GROUP_ACCEPT_INVITE);
+                        Model.getInstance().getDbManager().getInviteTableDAO().addInvitation(inviterInfo);
+
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                //页面更新
+                                Toast.makeText(InviteActivity.this,"接受群邀请成功",Toast.LENGTH_SHORT).show();
+                                refresh();
+                            }
+                        });
+                    } catch (HyphenateException e) {
+                        e.printStackTrace();
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                //页面更新
+                                Toast.makeText(InviteActivity.this,"接受群邀请失败"+e.getDescription(),Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                    }
+                }
+            });
+        }
+
+        @Override
+        public void OnInviteRej(InviterInfo inviterInfo) {
+            Model.getInstance().getGlobalThreadPool().execute(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        Log.e("TAG",inviterInfo.getGroupInfo().getGroupName()+" "+inviterInfo.getGroupInfo().getGid());
+                        EMClient.getInstance().groupManager().declineInvitation(inviterInfo.getGroupInfo().getGid(),inviterInfo.getGroupInfo().getInvitePerson(),"拒绝邀请");
+                        //本地数据库
+                        inviterInfo.setInvitationStatus(InviterInfo.InvitationStatus.GROUP_REJECT_INVITE);
+                        Model.getInstance().getDbManager().getInviteTableDAO().addInvitation(inviterInfo);
+
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                //页面更新
+                                Toast.makeText(InviteActivity.this,"拒绝群邀请成功",Toast.LENGTH_SHORT).show();
+                                refresh();
+                            }
+                        });
+                    } catch (HyphenateException e) {
+                        e.printStackTrace();
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                //页面更新
+                                Toast.makeText(InviteActivity.this,"拒绝群邀请失败"+e.getDescription(),Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                    }
+                }
+            });
+        }
+
+        @Override
+        public void OnApplicationAcc(InviterInfo inviterInfo) {
+            Model.getInstance().getGlobalThreadPool().execute(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        EMClient.getInstance().groupManager().acceptApplication(inviterInfo.getGroupInfo().getGid(),inviterInfo.getGroupInfo().getInvitePerson());
+                        //本地数据库
+                        inviterInfo.setInvitationStatus(InviterInfo.InvitationStatus.GROUP_REJECT_APPLICATION);
+                        Model.getInstance().getDbManager().getInviteTableDAO().addInvitation(inviterInfo);
+
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                //页面更新
+                                Toast.makeText(InviteActivity.this,"接受群申请成功",Toast.LENGTH_SHORT).show();
+                                refresh();
+                            }
+                        });
+                    } catch (HyphenateException e) {
+                        e.printStackTrace();
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                //页面更新
+                                Toast.makeText(InviteActivity.this,"接受群申请失败"+e.getDescription(),Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                    }
+                }
+            });
+        }
+
+        @Override
+        public void OnApplicationRej(InviterInfo inviterInfo) {
+            Model.getInstance().getGlobalThreadPool().execute(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        EMClient.getInstance().groupManager().declineApplication(inviterInfo.getGroupInfo().getGid(),inviterInfo.getGroupInfo().getInvitePerson(),"拒绝申请");
+                        //本地数据库
+                        inviterInfo.setInvitationStatus(InviterInfo.InvitationStatus.GROUP_REJECT_APPLICATION);
+                        Model.getInstance().getDbManager().getInviteTableDAO().addInvitation(inviterInfo);
+
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                //页面更新
+                                Toast.makeText(InviteActivity.this,"拒绝群申请成功",Toast.LENGTH_SHORT).show();
+                                refresh();
+                            }
+                        });
+                    } catch (HyphenateException e) {
+                        e.printStackTrace();
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                //页面更新
+                                Toast.makeText(InviteActivity.this,"拒绝群申请失败"+e.getDescription(),Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                    }
+                }
+            });
+        }
     };
+
     private InviteAdapter inviteAdapter;
     private BroadcastReceiver InviteChangedReceiver = new BroadcastReceiver() {
         @Override
@@ -119,6 +254,7 @@ public class InviteActivity extends Activity {
         // 注册邀请信息变化的广播
         mLBM = LocalBroadcastManager.getInstance(this);
         mLBM.registerReceiver(InviteChangedReceiver, new IntentFilter(Constant.CONTACT_INVITE_CHANGED));
+        mLBM.registerReceiver(InviteChangedReceiver, new IntentFilter(Constant.GROUP_INVITE_CHANGED));
     }
 
     private void refresh() {

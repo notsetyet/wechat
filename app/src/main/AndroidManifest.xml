@@ -29,7 +29,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".controller.activity.GroupActivity"></activity>
+        <activity android:name=".controller.activity.GroupDetailActivity"></activity>
+        <activity android:name=".controller.activity.PickContctActivity" />
+        <activity android:name=".controller.activity.NewGroupActivity" />
+        <activity android:name=".controller.activity.GroupActivity" />
         <activity android:name=".controller.activity.ChatActivity" />
         <activity android:name=".controller.activity.InviteActivity" />
         <activity android:name=".controller.activity.LoginActivity" /> <!-- 设置环信应用的AppKey -->

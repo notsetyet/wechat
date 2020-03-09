@@ -42,7 +42,7 @@ public class InviteTableDAO {
         db.replace(InviteTable.TAB_NAME,null,values);
     }
 
-    //获取全部联系人
+    //获取全部邀请
     public List<InviterInfo> getInvitations(){
         SQLiteDatabase db=mDBHelper.getReadableDatabase();
         String sql= "select * from " +InviteTable.TAB_NAME;
@@ -88,29 +88,45 @@ public class InviteTableDAO {
         if(intStatus==InviterInfo.InvitationStatus.INVITE_ACCEPT_BY_PEER.ordinal()){
             return InviterInfo.InvitationStatus.INVITE_ACCEPT_BY_PEER;
         }
-        if(intStatus==InviterInfo.InvitationStatus.INVITE_GROUP_ACCEPT.ordinal()){
-            return InviterInfo.InvitationStatus.INVITE_GROUP_ACCEPT;
-        }
-        if(intStatus==InviterInfo.InvitationStatus.INVITE_GROUP_ACCEPT_BY_PEER.ordinal()){
-            return InviterInfo.InvitationStatus.INVITE_GROUP_ACCEPT_BY_PEER;
-        }
-        if(intStatus==InviterInfo.InvitationStatus.INVITE_GROUP_REJECT.ordinal()){
-            return InviterInfo.InvitationStatus.INVITE_GROUP_REJECT;
-        }
-        if(intStatus==InviterInfo.InvitationStatus.INVITE_GROUP_REJECT_BY_PEER.ordinal()){
-            return InviterInfo.InvitationStatus.INVITE_GROUP_REJECT_BY_PEER;
-        }
         if(intStatus==InviterInfo.InvitationStatus.INVITE_REJECT.ordinal()){
             return InviterInfo.InvitationStatus.INVITE_REJECT;
         }
         if(intStatus==InviterInfo.InvitationStatus.INVITE_REJECT_BY_PEER.ordinal()){
             return InviterInfo.InvitationStatus.INVITE_REJECT_BY_PEER;
         }
+        if(intStatus==InviterInfo.InvitationStatus.NEW_INVITE.ordinal()){
+            return InviterInfo.InvitationStatus.NEW_INVITE;
+        }
+
         if(intStatus==InviterInfo.InvitationStatus.NEW_GROUP_INVITE.ordinal()){
             return InviterInfo.InvitationStatus.NEW_GROUP_INVITE;
         }
-        if(intStatus==InviterInfo.InvitationStatus.NEW_INVITE.ordinal()){
-            return InviterInfo.InvitationStatus.NEW_INVITE;
+        if(intStatus==InviterInfo.InvitationStatus.NEW_GROUP_APPLICATION.ordinal()){
+            return InviterInfo.InvitationStatus.NEW_GROUP_APPLICATION;
+        }
+        if(intStatus==InviterInfo.InvitationStatus.GROUP_INVITE_ACCEPTED.ordinal()){
+            return InviterInfo.InvitationStatus.GROUP_INVITE_ACCEPTED;
+        }
+        if(intStatus==InviterInfo.InvitationStatus.GROUP_INVITE_DECLINED.ordinal()){
+            return InviterInfo.InvitationStatus.GROUP_INVITE_DECLINED;
+        }
+        if(intStatus==InviterInfo.InvitationStatus.GROUP_ACCEPT_APPLICATION.ordinal()){
+            return InviterInfo.InvitationStatus.GROUP_ACCEPT_APPLICATION;
+        }
+        if(intStatus==InviterInfo.InvitationStatus.GROUP_ACCEPT_INVITE.ordinal()){
+            return InviterInfo.InvitationStatus.GROUP_ACCEPT_INVITE;
+        }
+        if(intStatus==InviterInfo.InvitationStatus.GROUP_APPLICATION_ACCEPTED.ordinal()){
+            return InviterInfo.InvitationStatus.GROUP_APPLICATION_ACCEPTED;
+        }
+        if(intStatus==InviterInfo.InvitationStatus.GROUP_APPLICATION_DECLINED.ordinal()){
+            return InviterInfo.InvitationStatus.GROUP_APPLICATION_DECLINED;
+        }
+        if(intStatus==InviterInfo.InvitationStatus.GROUP_REJECT_APPLICATION.ordinal()){
+            return InviterInfo.InvitationStatus.GROUP_REJECT_APPLICATION;
+        }
+        if(intStatus==InviterInfo.InvitationStatus.GROUP_REJECT_INVITE.ordinal()){
+            return InviterInfo.InvitationStatus.GROUP_REJECT_INVITE;
         }
         return null;
     }

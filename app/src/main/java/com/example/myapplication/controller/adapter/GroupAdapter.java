@@ -4,7 +4,6 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.myapplication.R;
@@ -51,9 +50,6 @@ public class GroupAdapter extends BaseAdapter {
             holder=new ViewHolder();
             convertView=View.inflate(mContext,R.layout.item_group,null);
             holder.tv_group_name=(TextView)convertView.findViewById(R.id.tv_group_name);
-            holder.tv_group_reason=(TextView)convertView.findViewById(R.id.tv_group_reason);
-            holder.bt_group_acc=(Button)convertView.findViewById(R.id.bt_group_acc);
-            holder.bt_group_rej=(Button)convertView.findViewById(R.id.bt_group_rej);
 
             convertView.setTag(holder);
         }else{
@@ -63,19 +59,11 @@ public class GroupAdapter extends BaseAdapter {
 
         holder.tv_group_name.setText(mGroupInfo.getGroupName());
 
-
         return convertView;
     }
 
     private class ViewHolder{
         private TextView tv_group_name;
-        private TextView tv_group_reason;
-        private Button bt_group_acc;
-        private Button bt_group_rej;
     }
 
-    public interface onGroupListener{
-        public void onAccept();
-        public void onReject();
-    }
 }

@@ -45,7 +45,15 @@ public class ContactListFragment extends EaseContactListFragment {
     private BroadcastReceiver ContactInviteChangedReceiver=new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
+            //更新红点显示
+            iv_contact_red.setVisibility(View.VISIBLE);
+            SPUtils.getInstance().save(SPUtils.IS_NEW_INVITE,true);
+        }
+    };
 
+    private BroadcastReceiver GroupChangedReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
             //更新红点显示
             iv_contact_red.setVisibility(View.VISIBLE);
             SPUtils.getInstance().save(SPUtils.IS_NEW_INVITE,true);
@@ -137,6 +145,8 @@ public class ContactListFragment extends EaseContactListFragment {
         mLBM.registerReceiver(ContactInviteChangedReceiver, new IntentFilter(Constant.CONTACT_INVITE_CHANGED));
 
         mLBM.registerReceiver(ContactChangedReceiver, new IntentFilter(Constant.CONTACT_CHANGED));
+
+        mLBM.registerReceiver(GroupChangedReceiver,new IntentFilter(Constant.GROUP_INVITE_CHANGED));
 
         getContactFromHx();
 
@@ -257,5 +267,6 @@ public class ContactListFragment extends EaseContactListFragment {
 
         mLBM.unregisterReceiver(ContactInviteChangedReceiver);
         mLBM.unregisterReceiver(ContactChangedReceiver);
+        mLBM.unregisterReceiver(GroupChangedReceiver);
     }
 }

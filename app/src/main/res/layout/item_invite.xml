@@ -26,11 +26,11 @@
             android:layout_height="wrap_content" />
 
         <TextView
-            android:id="@+id/tv_invite_reason"
-            android:text="原因"
-            android:textSize="20sp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+        android:id="@+id/tv_invite_reason"
+        android:text="原因"
+        android:textSize="20sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
     </LinearLayout>
 
     <Button
