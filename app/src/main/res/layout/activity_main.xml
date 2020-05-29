@@ -9,61 +9,44 @@
         android:id="@+id/fl_main"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"></FrameLayout>
-    
+        android:layout_weight="1"
+        android:background="#BCF4F3F3"></FrameLayout>
+
     <RadioGroup
         android:id="@+id/rg_main"
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="60dp" >
+        android:layout_height="61dp"
+        android:background="@color/white">
 
         <RadioButton
         android:id="@+id/rb_main_chat"
-        android:text="微信"
-        android:layout_width="0dp"
-        android:textSize="20sp"
-        android:button="@null"
-        android:gravity="center"
-        android:background="@drawable/main_bottom_bg_selector"
-        android:textColor="@color/main_bottom_textcolor_selector"
-        android:layout_weight="1"
-        android:layout_height="match_parent" />
+        style="@style/BottomTabStyle"
+            android:checked="true"
+            android:text="消息"
+        android:textSize="15sp"
+        android:drawableTop="@drawable/tab_chat" />
 
         <RadioButton
             android:id="@+id/rb_main_contact"
-            android:text="联系人"
-            android:layout_width="0dp"
-            android:textSize="20sp"
-            android:button="@null"
-            android:gravity="center"
-            android:background="@drawable/main_bottom_bg_selector"
-            android:textColor="@color/main_bottom_textcolor_selector"
-            android:layout_weight="1"
-            android:layout_height="match_parent" />
+            style="@style/BottomTabStyle"
+            android:text="通讯录"
+            android:textSize="15sp"
+            android:drawableTop="@drawable/tab_friend" />
 
         <RadioButton
             android:id="@+id/rb_main_post"
+            style="@style/BottomTabStyle"
             android:text="朋友圈"
-            android:layout_width="0dp"
-            android:textSize="20sp"
-            android:button="@null"
-            android:gravity="center"
-            android:background="@drawable/main_bottom_bg_selector"
-            android:textColor="@color/main_bottom_textcolor_selector"
-            android:layout_weight="1"
-            android:layout_height="match_parent" />
+            android:textSize="15sp"
+            android:drawableTop="@drawable/tab_pengyouquan" />
 
         <RadioButton
             android:id="@+id/rb_main_setting"
+            style="@style/BottomTabStyle"
             android:text="设置"
-            android:layout_width="0dp"
-            android:textSize="20sp"
-            android:button="@null"
-            android:gravity="center"
-            android:background="@drawable/main_bottom_bg_selector"
-            android:textColor="@color/main_bottom_textcolor_selector"
-            android:layout_weight="1"
-            android:layout_height="match_parent" />
+            android:textSize="15sp"
+            android:drawableTop="@drawable/tab_setting" />
     </RadioGroup>
 
 

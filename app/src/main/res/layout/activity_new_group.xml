@@ -40,6 +40,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:padding="5dp"
             android:text="是否公开"
             android:textSize="20sp" />
 
@@ -58,6 +59,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:padding="5dp"
             android:text="是否开放群邀请"
             android:textSize="20sp" />
 
@@ -72,7 +74,10 @@
         android:id="@+id/bt_newgroup_create"
         android:text="创建"
         android:textSize="20sp"
-        android:layout_margin="5dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:background="@color/btn_blue_normal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 

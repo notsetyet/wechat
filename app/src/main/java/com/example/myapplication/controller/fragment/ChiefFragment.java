@@ -17,6 +17,7 @@ public class ChiefFragment extends EaseConversationListFragment {
     @Override
     protected void initView() {
         super.initView();
+        titleBar.setTitle("消息");
 
         setConversationListItemClickListener(new EaseConversationListItemClickListener() {
             @Override

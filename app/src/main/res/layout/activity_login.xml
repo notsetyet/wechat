@@ -1,90 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical">
-
-<!--    <com.hyphenate.easeui.widget.EaseTitleBar-->
-<!--        app:titleBarTitle="登录"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content">-->
-
-<!--    </com.hyphenate.easeui.widget.EaseTitleBar>-->
-    <RelativeLayout
-        android:background="@color/holo_green_light"
+    android:paddingTop="100dp"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp"
+    android:background="#388A95">
+    <ImageView
+        android:id="@+id/iv_1"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_centerHorizontal="true"
+        android:scaleType="fitCenter"
+        android:src="@drawable/person"/>
+    <EditText
+        android:id="@+id/et_login_usr"
         android:layout_width="match_parent"
-        android:layout_height="60dp" >
-        <TextView
+        android:layout_height="wrap_content"
+        android:lines="1"
+        android:layout_marginTop="20dp"
+        android:hint="@string/hint_username"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:layout_below="@id/iv_1"/>
+    <EditText
+        android:id="@+id/et_login_pwd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:lines="1"
+        android:hint="@string/hint_password"
+        android:inputType="textPassword"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/et_login_usr"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"/>
+    <LinearLayout
+        android:id="@+id/ly_1"
+        android:layout_below="@id/et_login_pwd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <CheckBox
+            android:id="@+id/cb_rm"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="登录"
-            android:textSize="30sp"
-            android:layout_centerInParent="true"
-            android:textColor="@color/btn_white_normal"/>
+            android:text="@string/checkbox_re"
+            android:textColor="@color/white"
+            android:layout_gravity="start"
+            android:layout_weight="3"/>
 
-    </RelativeLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="150dp">
-
-        <TextView
-            android:text="仿微信"
-            android:textSize="30dp"
-            android:gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_margin="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:text="用户名："
-            android:textSize="25sp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-        <EditText
-            android:id="@+id/et_login_usr"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-    </LinearLayout>
-    <LinearLayout
-        android:layout_margin="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:text="密    码："
-            android:textSize="25sp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-        <EditText
-            android:id="@+id/et_login_pwd"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_margin="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
         <Button
             android:id="@+id/bt_login_register"
-            android:text="注册"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content" />
-        <Button
-            android:id="@+id/bt_login_login"
-            android:text="登录"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content" />
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="end"
+            android:gravity="center"
+            android:background="@android:color/transparent"
+            android:text="@string/button_register"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:layout_weight="1"/>
     </LinearLayout>
 
-</LinearLayout>
+    <Button
+        android:id="@+id/bt_login_login"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ly_1"
+        android:layout_marginTop="35dp"
+        android:background="@drawable/button_border"
+
+        android:text="@string/button_confirm"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/white" />
+
+</RelativeLayout>

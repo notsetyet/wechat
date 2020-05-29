@@ -72,7 +72,6 @@ public class ContactListFragment extends EaseContactListFragment {
         super.initView();
 
         titleBar.setRightImageResource(R.drawable.em_add);
-        titleBar.setBackgroundColor(0xff99cc00);
         titleBar.setTitle("通讯录");
 
         //

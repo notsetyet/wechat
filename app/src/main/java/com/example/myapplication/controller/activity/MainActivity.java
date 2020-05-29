@@ -34,6 +34,8 @@ public class MainActivity extends FragmentActivity {
 
         initData();
 
+        switchFragment(chiefFragment);
+
         initListener();
     }
 
