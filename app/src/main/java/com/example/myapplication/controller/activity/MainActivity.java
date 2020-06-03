@@ -16,6 +16,8 @@ import com.example.myapplication.controller.fragment.ContactListFragment;
 import com.example.myapplication.controller.fragment.PostFragment;
 import com.example.myapplication.controller.fragment.SettingFragment;
 
+import com.example.myapplication.runtimepermissions.*;
+
 public class MainActivity extends FragmentActivity {
 
     private RadioGroup rg_main;
@@ -28,7 +30,10 @@ public class MainActivity extends FragmentActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
+
+        requestPermissions();
 
         initView();
 
@@ -86,6 +91,20 @@ public class MainActivity extends FragmentActivity {
 
     private void initView() {
         rg_main=(RadioGroup)findViewById(R.id.rg_main);
+    }
+
+    private void requestPermissions() {
+        PermissionsManager.getInstance().requestAllManifestPermissionsIfNecessary(this, new PermissionsResultAction() {
+            @Override
+            public void onGranted() {
+//				Toast.makeText(MainActivity.this, "All permissions have been granted", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onDenied(String permission) {
+                //Toast.makeText(MainActivity.this, "Permission " + permission + " has been denied", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
 }
