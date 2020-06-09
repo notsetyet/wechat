@@ -52,6 +52,10 @@ public class LoginActivity extends Activity {
                 login();
             }
         });
+        //Intent intent = new Intent(LoginActivity.this, HelpActivity.class);
+
+        //startActivity(intent);
+
     }
 
     // 登录按钮的页面逻辑处理

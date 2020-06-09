@@ -29,9 +29,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
+        <activity android:name=".controller.activity.WebActivity"></activity>
+        <activity android:name=".controller.activity.HelpActivity" />
         <activity android:name="com.hyphenate.easeui.ui.EaseShowBigImageActivity" />
-
         <activity android:name=".controller.activity.GroupDetailActivity" />
         <activity android:name=".controller.activity.PickContctActivity" />
         <activity android:name=".controller.activity.NewGroupActivity" />

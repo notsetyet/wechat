@@ -55,4 +55,5 @@ dependencies {
     implementation 'com.google.android.gms:play-services-base:11.4.0'
     implementation 'com.google.firebase:firebase-messaging:11.4.0'
     implementation project(path: ':easeui')
+    implementation 'cn.yc:WebViewLib:1.2.2'
 }

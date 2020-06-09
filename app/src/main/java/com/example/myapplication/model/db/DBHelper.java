@@ -10,7 +10,7 @@ import com.example.myapplication.model.bean.InviterInfo;
 import com.example.myapplication.model.dao.ContactTable;
 import com.example.myapplication.model.dao.InviteTable;
 
-//联系人和邀请信息
+//联系人和邀请信息+朋友圈
 public class DBHelper extends SQLiteOpenHelper {
     public DBHelper(Context context,String name) {
         super(context, name, null, 1);

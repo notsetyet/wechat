@@ -24,6 +24,15 @@
         android:layout_height="0dp"
         android:layout_weight="1">
 
+        <Button
+            android:id="@+id/bt_setting_help"
+            android:text="帮助"
+            android:textSize="20sp"
+            android:textColor="@android:color/white"
+            android:textAllCaps="false"
+            android:background="@android:color/darker_gray"
+            android:layout_width="match_parent"
+            android:layout_height="60dp" />
     </ScrollView>
 
     <Button

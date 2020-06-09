@@ -14,39 +14,39 @@
 
     <RadioGroup
         android:id="@+id/rg_main"
-        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="61dp"
-        android:background="@color/white">
+        android:background="@color/white"
+        android:orientation="horizontal">
 
         <RadioButton
-        android:id="@+id/rb_main_chat"
-        style="@style/BottomTabStyle"
+            android:id="@+id/rb_main_chat"
+            style="@style/BottomTabStyle"
             android:checked="true"
+            android:drawableTop="@drawable/tab_chat"
             android:text="消息"
-        android:textSize="15sp"
-        android:drawableTop="@drawable/tab_chat" />
+            android:textSize="15sp" />
 
         <RadioButton
             android:id="@+id/rb_main_contact"
             style="@style/BottomTabStyle"
+            android:drawableTop="@drawable/tab_friend"
             android:text="通讯录"
-            android:textSize="15sp"
-            android:drawableTop="@drawable/tab_friend" />
+            android:textSize="15sp" />
 
         <RadioButton
             android:id="@+id/rb_main_post"
             style="@style/BottomTabStyle"
+            android:drawableTop="@drawable/tab_pengyouquan"
             android:text="朋友圈"
-            android:textSize="15sp"
-            android:drawableTop="@drawable/tab_pengyouquan" />
+            android:textSize="15sp" />
 
         <RadioButton
             android:id="@+id/rb_main_setting"
             style="@style/BottomTabStyle"
+            android:drawableTop="@drawable/tab_setting"
             android:text="设置"
-            android:textSize="15sp"
-            android:drawableTop="@drawable/tab_setting" />
+            android:textSize="15sp" />
     </RadioGroup>
 
 
