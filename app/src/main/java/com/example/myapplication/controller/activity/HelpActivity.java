@@ -27,8 +27,8 @@ public class HelpActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(HelpActivity.this,WebActivity.class);
-                intent.putExtra("url","https://kf.qq.com/touch/wxappfaq/170524v2iaAr17052477Bn2y.html?platform=15");
-                intent.putExtra("name","发送朋友圈失败怎么办？");
+                intent.putExtra("url","https://shimo.im/docs/pPJvYRg9HGvvX8yv/ ");
+                intent.putExtra("name","微信添加好友的方法");
                 startActivity(intent);
             }
         });
@@ -36,7 +36,7 @@ public class HelpActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(HelpActivity.this,WebActivity.class);
-                intent.putExtra("url","https://kf.qq.com/touch/wxappfaq/120813euEJVf141211vYzMbi.html?platform=15");
+                intent.putExtra("url","https://shimo.im/docs/jtrkJCVD3qXdytv3/\n");
                 intent.putExtra("name","微信怎么建群？如何邀请别人加入群聊");
                 startActivity(intent);
             }
@@ -45,8 +45,8 @@ public class HelpActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(HelpActivity.this,WebActivity.class);
-                intent.putExtra("url","https://kf.qq.com/touch/wxappfaq/120813euEJVf141211q6Zzyu.html?platform=15");
-                intent.putExtra("name","微信添加好友的方法");
+                intent.putExtra("url","https://shimo.im/docs/KJvCqwtw6PkX3RhJ/");
+                intent.putExtra("name","发送朋友圈失败怎么办？");
                 startActivity(intent);
             }
         });
